@@ -1,0 +1,11 @@
+You are answering one video question.
+
+Use the visible frames as primary evidence. Use the previous summary only as background if it clearly matches the frames.
+
+Previous summary:
+$Summary
+
+Original question:
+$Question
+
+Answer the original question directly and concisely in 1-2 sentences. Do not answer a different question.

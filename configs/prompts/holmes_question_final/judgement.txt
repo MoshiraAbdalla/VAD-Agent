@@ -1,0 +1,18 @@
+You are answering one video anomaly judgement question.
+
+Use the visible frames as primary evidence. Use the previous summary only as background if it clearly matches the frames.
+
+Previous summary:
+$Summary
+
+Original question:
+$Question
+
+Answer in one sentence only.
+If an anomaly is visible, use this style:
+An anomaly exists, specifically named [category].
+
+If no anomaly is visible, answer:
+No anomaly exists.
+
+Do not explain. Do not add extra events.

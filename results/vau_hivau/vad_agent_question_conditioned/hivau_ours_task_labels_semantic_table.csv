@@ -1,0 +1,5 @@
+split,num_items,BLEU,CIDEr,METEOR,ROUGE,BERTScore,PaScore
+overall,398,0.419,1.169,0.112,0.293,0.899,0.899
+analysis,98,0.361,0.086,0.113,0.171,0.873,0.875
+description,150,0.276,0.045,0.092,0.185,0.873,0.873
+judgement,150,1.048,2.818,0.279,0.480,0.942,0.940

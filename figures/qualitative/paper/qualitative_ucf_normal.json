@@ -1,0 +1,44 @@
+{
+  "id": "qualitative_ucf_normal",
+  "print_width_inches": 7.1,
+  "print_height_inches": 6.4580416666666665,
+  "frame_panel_pixels": [
+    660,
+    371
+  ],
+  "body_font_points": 9.584999999999999,
+  "minimum_plot_font_points": 9.5,
+  "full_agent_outputs": true,
+  "projection_mode": "stride",
+  "gap_policy": "hold",
+  "cases": [
+    {
+      "id": "qualitative_ucf_normal",
+      "dataset": "ucf",
+      "video": "Normal_Videos_050_x264",
+      "score_source": "results\\predictions\\ucf_crime_mif_stride150\\Normal_Videos_050_x264.json",
+      "score_sha256": "31865890788df31aa84a58d2bedd23677636212d53f4746ec8d48f95a66f11bb",
+      "agent_source": "results\\predictions\\ucf_crime_mif_stride150\\Normal_Videos_050_x264.json",
+      "agent_sha256": "31865890788df31aa84a58d2bedd23677636212d53f4746ec8d48f95a66f11bb",
+      "feature_source": "results\\cached_features\\ucf_crime_stride150\\Normal_Videos_050_x264.npy",
+      "feature_sha256": "7bf532c6c671d24025b2bd2fb26b3bf577e6e2ff0d40c9afd8f90d4370bedb3b",
+      "ground_truth_intervals": [],
+      "n_segments": 28,
+      "curve_alignment": "exact",
+      "snapshots": [
+        {
+          "frame": 2250,
+          "start": 2250,
+          "end": 2550,
+          "label": 0,
+          "frame_sha256": "eb127c53e0e7ec1c8dc68a2eca0f1993fb996040d0b7803db6a1d64b93117c0b",
+          "agent_outputs": {
+            "summarization_agent": "Summary: The video captures a bustling urban street during rush hour, with multiple lanes filled with cars and buses. Pedestrians are walking alongside the road, and traffic lights and road signs are visible. The scene is set in a city with buildings, trees, and clear weather.\nKey Entities: Cars, buses, pedestrians, traffic lights, road signs, trees, buildings\nScene Setting: Urban street",
+            "context_agent": "Context Summary: A busy urban street with multiple lanes filled with cars and buses, indicating a typical rush hour traffic scenario.\nKey Entities: Cars, buses, road, traffic lights, pedestrians\nScene Setting: Urban street",
+            "reasoning_agent": "Answers to Prompt Questions: \n1. No, there are no people in the video who are not in their typical positions or engaging in activities that are not consistent with their usual behavior.\n2. No, there are no vehicles in the video that are not in their typical positions or being used in a way that is not consistent with their usual function.\n3. No, there are no objects in the video that are not in their typical positions or being used in a way that is not consistent with their usual function.\n4. No, there is no visible damage or unusual movement in the video that indicates an anomaly.\n5. No, there are no unusual sounds or noises in the video that suggest an anomaly.\n\nOutput: 0"
+          }
+        }
+      ]
+    }
+  ]
+}

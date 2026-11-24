@@ -1,0 +1,371 @@
+﻿import argparse, glob
+import numpy as np, re
+
+from src.data.video_record import VideoRecord
+from src.utils.vis_utils import visualize_video
+from src.utils.eval_utils import *
+from src.utils.ensemble_utils import *
+
+def node_sort(coarse_scores_json, fine_scores_json):
+    """Return parent/child score files according to HGTree granularity.
+
+    A higher DFS threshold, or the same threshold with a larger minimum segment
+    length, represents the coarser parent node set.
+    """
+    # ä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼ç²¾å‡†å®šä½
+    match0 = re.search(r"_dfs_([0-9.]+)_(\d+)", coarse_scores_json)
+    match1 = re.search(r"_dfs_([0-9.]+)_(\d+)", fine_scores_json)
+
+    if float(match0.group(1)) > float(match1.group(1)): # é˜ˆå€¼é«˜çš„ä¸ºçˆ¶èŠ‚ç‚¹
+        print('root node coarse_scores_jsonï¼š', coarse_scores_json)
+        print('child node coarse_scores_jsonï¼š', fine_scores_json)
+        return coarse_scores_json, fine_scores_json
+    elif float(match0.group(1)) == float(match1.group(1)):  # é˜ˆå€¼ç›¸åŒï¼Œåˆ™æœ€å°ç‰‡æ®µé•¿åº¦æ›´å¤§çš„ä¸ºçˆ¶èŠ‚ç‚¹
+        if float(match0.group(2)) >= float(match1.group(2)):
+            print('root node coarse_scores_jsonï¼š', coarse_scores_json)
+            print('child node coarse_scores_jsonï¼š', fine_scores_json)
+            return coarse_scores_json, fine_scores_json
+
+    print('root node coarse_scores_jsonï¼š', fine_scores_json)
+    print('child node coarse_scores_jsonï¼š', coarse_scores_json)
+    return fine_scores_json, coarse_scores_json # å…¶ä»–æƒ…å†µ
+
+def parse_args():
+
+    parser = argparse.ArgumentParser()
+
+    # Required arguments
+    parser.add_argument("--video_root", type=str,
+        default=None,
+        help="Root directory containing the video files. You can set it to None if not visualize or auto set according to dataset."
+    )
+
+    # UCF-Crime
+    parser.add_argument("--coarse_scores_json", type=str,
+        default='result/UCF_Crime_test/EGEBD_x2x3x4_r50_eff_split_out_th0.5_peak_dfs_kmeans_1_0.4/LLaVA-Video-7B-Qwen2_ucf_prior_q_coarse/DeepSeek-R1-Distill-Qwen-14B_think_VxV10_nn10_tao0.1/refine_maxf64_ucf_prior_q_Here is a .json',
+    )
+    parser.add_argument("--fine_scores_json", type=str,
+        default='result/UCF_Crime_test/EGEBD_x2x3x4_r50_eff_split_out_th0.5_peak_dfs_kmeans_1_0.4/LLaVA-Video-7B-Qwen2_ucf_prior_q_fine/DeepSeek-R1-Distill-Qwen-14B_think_VxV10_nn10_tao0.1/refine_maxf64_ucf_prior_q_Here is a .json',
+    )
+
+    parser.add_argument("--beta",
+        type=float,
+        default=0.2,
+        # default=-0.6,
+        help="beta for score correlation",
+    )
+    parser.add_argument("--without_labels", default=False, action="store_true")
+    parser.add_argument("--visualize",
+        # default=True,
+        default=False,
+        action="store_true")
+
+    args = parser.parse_args()
+
+
+    #  è‡ªåŠ¨åŒ–é…ç½®å‚æ•°è¡¥å…¨
+    vadtree_path = os.path.dirname(__file__)
+    args.vadtree_path = vadtree_path
+    if 'UCF' in args.coarse_scores_json:
+        assert 'UCF' in args.fine_scores_json
+        args.normal_label = 7
+        args.video_fps = 30.0
+        args.annotationfile_path=f'{vadtree_path}/dataset_info/ucf_crime/annotations/anomaly_test.txt'
+        args.temporal_annotation_file=f'{vadtree_path}/dataset_info/ucf_crime/annotations/Temporal_Anomaly_Annotation_for_Testing_Videos.txt'
+        if args.video_root is None: args.video_root = "/root/autodl-fs/lwl/data/UCF_Crime_test/test_videos"
+
+    elif 'XD' in args.coarse_scores_json:
+        assert 'XD' in args.fine_scores_json
+        args.normal_label = 4
+        args.video_fps = 24.0
+        args.annotationfile_path=f'{vadtree_path}/dataset_info/xd_violence/annotations/anomaly_test.txt'
+        args.temporal_annotation_file=f'{vadtree_path}/dataset_info/xd_violence/annotations/temporal_anomaly_annotation_for_testing_videos.txt'
+        if args.video_root is None: args.video_root = "/root/autodl-fs/lwl/data/XD_test/test_videos/"
+
+    elif 'MSAD' in args.coarse_scores_json:
+        args.normal_label = 0
+        args.video_fps = 'auto'
+        args.annotationfile_path=f'{vadtree_path}/dataset_info/MSAD/annotations/anomaly_test.txt'
+        args.temporal_annotation_file=f'{vadtree_path}/dataset_info/MSAD/annotations/Temporal_Anomaly_Annotation_for_Testing_Videos.txt'
+        if args.video_root is None: args.video_root = "/root/autodl-fs/lwl/data/MSAD_test/test_videos/"
+    
+    args.output_dir = os.path.dirname(args.coarse_scores_json)
+
+    parent_dir = os.path.dirname(os.path.dirname(os.path.dirname(args.coarse_scores_json)))
+    if 'split_mean' in args.coarse_scores_json: # å‡åŒ€é‡‡æ ·çš„å®žéªŒ
+        pattern = os.path.join(parent_dir, "scenes.json")
+    else:
+        pattern = os.path.join(parent_dir, "pred.json")
+    candidates = glob.glob(pattern)
+    assert len(candidates)>=1
+    args.split_pred = candidates[0]
+
+    # é›†æˆåŽçš„åˆ†æ•°å­˜å‚¨
+    if args.fine_scores_json!=None:
+        base_output_dir = args.output_dir
+        name = os.path.normpath(os.path.dirname(args.fine_scores_json)).replace('EGEBD_x2x3x4_r50_eff_split_out_th',
+            'EX234R50ES')
+        name =name.replace('LLaVA-Video-7B-Qwen2', 'LV7Q').replace('DeepSeek-R1-Distill-Qwen-14B', 'DRDQ14')
+        name = '_'.join(Path(name).parts[-3:])
+        args.output_dir = f'{base_output_dir}_ENSE_{name}_beat{args.beta}'
+        if len(os.path.abspath(args.output_dir)) > 240:
+            if 'UCF' in args.coarse_scores_json:
+                dataset_key = 'UCF_Crime_test'
+            elif 'XD' in args.coarse_scores_json:
+                dataset_key = 'XD_Violence_test'
+            elif 'MSAD' in args.coarse_scores_json:
+                dataset_key = 'MSAD_test'
+            else:
+                dataset_key = 'unknown'
+            args.output_dir = os.path.join('result', 'eval_runs', f'{dataset_key}_correlation_beta{args.beta}')
+        args.ense_score_output_json = os.path.join(args.output_dir, 'ense_'+os.path.basename(args.coarse_scores_json))
+
+
+    return args
+
+
+
+def main(
+        args
+):
+
+    # Load the temporal annotations
+    if not args.without_labels:
+        annotations = temporal_testing_annotations(args.temporal_annotation_file)
+
+    # Load video records from the annotation file
+    video_list = [VideoRecord(x.strip().split(), '' if args.video_root is None else args.video_root) for x in open(
+        args.annotationfile_path)]
+
+    flat_scores, flat_labels = initialize_score_dicts(
+        scores_json=args.coarse_scores_json
+    )
+
+    vid_metric = {}
+    dataset_metric = {}
+
+    # load all_video_scores_dict
+    with open(args.coarse_scores_json) as f:
+        all_video_scores_dict = json.load(f)
+    # pprint(all_video_scores_dict['config'])
+    out_all_video_scores_dict = copy.deepcopy(all_video_scores_dict)
+
+    # load ense_scores_dict
+    with open(args.fine_scores_json) as f:
+        all_ense_scores_dict = json.load(f)
+
+    if args.split_pred is not None:
+        with open(args.split_pred) as f:
+            all_video_split_pred = json.load(f)
+
+    if 'MSAD' in args.coarse_scores_json: # load video info for fps
+        with open(f'{args.vadtree_path}/result/MSAD_test/EGEBD_x2x3x4_r50_eff_split_out_th0.5_peak_dfs_kmeans_1_0.3'
+                  '/dfs_coarse_scenes.json') as f:
+            msad_video_info = json.load(f)
+
+    ab_pro_mean = []
+    ab_pro_sum = []
+    ab_pro_var = []
+    ab_pro_max = []
+    ab_max = []
+    all_ab_s = []
+    ab_s = []
+    ab_f_pro = []
+    all_ab_f_pro = []
+    all_ab_pro_mean = []
+    for k, video in enumerate(video_list):
+
+        video_name = Path(video.path).name
+        # Get video labels
+        if args.without_labels:
+            video_labels = []
+        else:
+            video_labels = get_video_labels(video, annotations, args.normal_label)
+
+        if args.video_fps=='auto':
+            video_fps = msad_video_info[video_name+'.mp4']['fps']
+        # Load the scores
+        video_scores_dict = all_video_scores_dict['vid_score'][video_name + '.mp4']
+        ense_video_scores_dict = all_ense_scores_dict['vid_score'][video_name + '.mp4']
+        video_scores = [0.0] * len(video_labels)
+        video_scores_ = [0.0] * len(video_labels)
+        # video_captions = all_video_caption_dict['vid_captions'][video_name + '.mp4']
+        video_captions = [video_scores_dict, ense_video_scores_dict]
+
+        video_variances = compute_normalized_variances(
+            video_scores_dict, ense_video_scores_dict,
+            normalization='minmax',
+            # 'softmax'
+        )
+        # Start from an even coarse/fine blend. Later, high disagreement raises
+        # the fine-node contribution for the corresponding frame interval.
+        # weight = [0.5, 0.5]
+        weight_list = [0.5] * len(video_labels) #åŽŸå§‹åˆ†æ•°çš„æƒé‡ã€‚
+        scenes = []
+        vid_ab_pro = []
+        for idx, (clip, score) in enumerate(video_scores_dict.items()):
+            start, end = map(lambda x: int(float(x)), clip.split(', '))
+            scenes += [start, end]
+            if isinstance(score, list) and 'think' in args.coarse_scores_json: # å¤„ç†thinkä¿¡æ¯
+                think_info = score[-1]
+                if 'dur' in args.coarse_scores_json:  # å¤„ç†durä¿¡æ¯
+                    dur = score[1]
+                    start, end = dur_refine(start, end, dur)
+            score_ = score[1] # æœªç»refineçš„åˆ†æ•°
+            score = score[0]
+            video_scores[start:end+1] = [score] * (end - start+1)
+            # video_scores_org[start:end+1] = [score_] * (end - start+1)
+            video_scores_[start:end+1] = [score_] * (end - start+1)
+            vid_ab_pro.append(((end-start)/len(video_labels))* score_)
+            # fine_w = 0
+
+        all_ab_s.append(sum(video_scores)/len(video_labels))
+        for idx, (clip, score) in enumerate(video_scores_dict.items()):
+            start, end = map(lambda x: int(float(x)), clip.split(', '))
+            fine_w = video_variances[clip]['norm_score']*args.beta
+            weight_list[start:end+1] = [0.5 - fine_w/2] * (end - start+1)
+
+        print(f'{video_name} vid_ab_pro', np.array(vid_ab_pro).mean(),  np.array(vid_ab_pro).sum(),
+            np.array(vid_ab_pro).max(),vid_ab_pro)
+        # if args.normal_label not in video_labels:
+
+        all_ab_f_pro.append(np.array(np.array(video_labels)!= args.normal_label).sum()/len(video_labels)) # è®¡ç®—å¼‚å¸¸ç‰‡æ®µçš„æ¯”ä¾‹
+        all_ab_pro_mean.append(np.array(vid_ab_pro).mean())
+
+        if len(set(video_labels))==1 and  args.normal_label in set(video_labels): #ä¸å«æœ‰å¼‚å¸¸ç‰‡æ®µ
+        # if 0: #ä¸å«æœ‰å¼‚å¸¸ç‰‡æ®µ
+            print()
+        else:
+            ab_s.append(sum(video_scores_)/len(video_labels))
+            ab_pro_mean.append(np.array(vid_ab_pro).mean())
+            ab_pro_sum.append(np.array(vid_ab_pro).sum())
+            ab_pro_var.append(np.array(vid_ab_pro).var())
+            ab_pro_max.append(np.array(vid_ab_pro).max())
+            ab_max.append(np.array(vid_ab_pro).max()*len(video_labels))
+        # å¾…é›†æˆçš„åˆ†æ•°
+        ense_scores = get_video_flat_scores(ense_video_scores_dict) # å¾…é›†æˆçš„åˆ†æ•°
+
+        # åŠ æƒ
+        # å…¼å®¹äº†MSADæ•°æ®é›†ä¸­æ ‡ç­¾é•¿åº¦ä¸Žå®žé™…è§†é¢‘å¸§æ•°é‡ä¸åŒ¹é…çš„æƒ…å†µã€‚
+        # Keep the same frame-level order because metric computation consumes
+        # these scores directly.
+        w_video_scores = np.array(weight_list)* np.array(video_scores)
+        w_ense_scores = (1-np.array(weight_list)[:len(ense_scores)])*np.array(ense_scores)
+        w_video_scores[:len(w_ense_scores)] += w_ense_scores
+        ense_video_scores = list(w_video_scores)
+
+        ense_video_scores =  [round(num,4)  for num in ense_video_scores]
+
+
+        assert len(ense_video_scores) == video.num_frames
+
+        out_all_video_scores_dict['vid_score'][video_name + '.mp4'] = ense_video_scores
+
+        # Extend scores and labels
+        flat_scores, flat_labels = update_flat_scores_labels(
+            flat_scores, flat_labels, ense_video_scores, video_labels, args.without_labels, args.coarse_scores_json, video_name
+        )
+
+        # è®¡ç®—å•ä¸ªè§†é¢‘çš„æŒ‡æ ‡
+        vid_binary_labels = np.array(video_labels) != args.normal_label
+
+        fpr, tpr, threshold = roc_curve(vid_binary_labels, np.array(ense_video_scores))
+        roc_auc = auc(fpr, tpr)
+
+        # Compute precision-recall curve
+        precision, recall, th = precision_recall_curve(vid_binary_labels, np.array(ense_video_scores))
+        pr_auc = auc(recall, precision)
+
+        pos_mean = round(np.array(ense_video_scores)[vid_binary_labels].mean(),4)
+        neg_mean = round(np.array(ense_video_scores)[~vid_binary_labels].mean(),4)
+        vid_metric[video_name] = {'roc_auc':round(roc_auc,4), 'pr_auc':round(pr_auc,4), '1_mean':pos_mean,
+            '0_mean':neg_mean}
+        print(str(k).zfill(4), video_name, f' {vid_metric[video_name]} ')
+
+        # if pr_auc>0.8:
+        #     print('sdadadaedwawd',pr_auc, roc_auc)
+
+        # if False:
+        if args.visualize:
+            vis_dir = os.path.join(args.output_dir, 'vis_dir')
+            os.makedirs(vis_dir, exist_ok=True)
+
+            # visualize_video
+            visualize_video(
+                video_name,
+                video_labels if not args.without_labels else [],
+                ense_video_scores,
+                video_captions,
+                args.video_root,
+                video_fps if args.video_fps == 'auto' else args.video_fps,
+                Path(vis_dir) / f"{video_name}.mp4",
+                args.normal_label,
+                "{:06d}.jpg",
+                save_video=False,
+                # video_metric = f'roc_auc:{round(roc_auc,4)}, pr_auc:{round(pr_auc,4)},1_mean:{pos_mean},  '
+                #                f'0_mean:{neg_mean}',
+                scenes=scenes,
+                # scenes=None,
+                # split_pred=all_video_split_pred[video_name + '.mp4'] if args.split_pred is not None else None,
+                # split_pred=None,
+            )
+
+    if not args.without_labels:
+        dataset_metric = compute_metrics(flat_scores, flat_labels, args.normal_label)
+
+        out_vid_metric = {'vid_metric':vid_metric,
+            'dataset_metric':dataset_metric,
+            'args_dict': args_dict,
+        }
+        # æ¯ä¸ªè§†é¢‘çš„ç»“æžœæ±‡èšä¸ºä¸€ä¸ªjson
+        print(json.dumps(dataset_metric, indent=4, ensure_ascii=False))
+        print(json.dumps(dataset_metric['all'], indent=4, ensure_ascii=False))
+
+        if len(video_list) not in [800, 103, 140, 290, 240]:
+            print('!!!!!!!!!!!!!val mode, not write!!!!!!!!!!!!')
+
+        # print('!!!!!!!!!!!!!val mode, not write!!!!!!!!!!!!')
+
+        # some statistics results
+        # print('ab_pro_mean',np.array(ab_pro_mean).mean(), ab_pro_mean)
+        # print('ab_pro_sum',np.array(ab_pro_sum).mean(), ab_pro_sum)
+        # print('ab_pro_var',np.array(ab_pro_var).mean(), ab_pro_var)
+        # print('ab_pro_max',np.array(ab_pro_max).mean(), ab_pro_max)
+        # print('ab_max',np.array(ab_max).mean(), ab_max)
+        # print('all_video_all_ab_s',np.array(all_ab_s).mean(),all_ab_s)
+        # print('ab_s',np.array(ab_s).mean(),ab_s)
+        # print('ab_f_pro', np.array(ab_f_pro).mean(), ab_f_pro)
+        # print('all_ab_f_pro', np.array(all_ab_f_pro).mean())
+        # print('all_ab_pro_mean', np.array(all_ab_pro_mean).mean())
+
+        # sys.exit(0)
+        os.makedirs(args.output_dir, exist_ok=True)
+
+
+        out_json_name = '00vid_metric' + os.path.basename(args.annotationfile_path)[:-4].replace('anomaly_test', '')
+        with open(f'{args.output_dir}/{out_json_name}.json', 'w', encoding='utf-8') as json_file:
+            # åºåˆ—åŒ–æ•°æ®åˆ°æ–‡ä»¶ï¼Œè®¾ç½® ensure_ascii=False ä»¥æ”¯æŒéžASCIIå­—ç¬¦
+            # indent å‚æ•°ç”¨äºŽæ ¼å¼åŒ–è¾“å‡ºï¼Œä½¿ JSON æ–‡ä»¶æ›´æ˜“è¯»
+            json.dump(out_vid_metric, json_file, ensure_ascii=False, indent=4)
+        print(f'\nsave path:{args.output_dir}/00vid_metric.json')
+
+        # refineåŽå¾—åˆ†å­˜å‚¨
+        del out_all_video_scores_dict['config']
+        out_all_video_scores_dict['dataset_metric'] = dataset_metric
+        out_all_video_scores_dict['args_dict'] = args_dict
+        with open(args.ense_score_output_json, 'w', encoding='utf-8') as json_file:
+            json.dump(out_all_video_scores_dict, json_file, ensure_ascii=False, indent=4)
+        print(f'\nout_all_video_scores_dict save path:{args.ense_score_output_json}')
+
+if __name__ == "__main__":
+    args = parse_args()
+    # è½¬æ¢å¹¶åºåˆ—åŒ–
+    args_dict = args_to_dict(args,max_depth=5)
+    print('-'*50)
+    for arg, value in vars(args).items():
+        print(f"{arg}: {value}")
+    print('-'*50)
+    main(
+        args
+    )
+

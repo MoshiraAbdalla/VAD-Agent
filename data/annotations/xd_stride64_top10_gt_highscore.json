@@ -1,0 +1,71 @@
+[
+  {
+    "video": "v=_BgJEXQkjNQ__#1_label_G-0-0",
+    "temporal_label": [1720, 5145, 5302, 7938],
+    "length": 8139,
+    "label": "1"
+  },
+  {
+    "video": "Young.And.Dangerous.I.1996__#0-46-57_0-48-57_label_B1-0-0",
+    "temporal_label": [0, 2454],
+    "length": 2881,
+    "label": "1"
+  },
+  {
+    "video": "Young.And.Dangerous.IV.1997__#01-07-50_01-09-45_label_B1-0-0",
+    "temporal_label": [368, 2734],
+    "length": 2761,
+    "label": "1"
+  },
+  {
+    "video": "Mission.Impossible.Fallout.2018__#00-31-21_00-32-50_label_B1-0-0",
+    "temporal_label": [96, 2125],
+    "length": 2136,
+    "label": "1"
+  },
+  {
+    "video": "v=uQY15O3LKI0__#1_label_B6-0-0",
+    "temporal_label": [
+      297, 336, 600, 750, 811, 912, 1068, 1208, 1320, 1350, 1425, 1470,
+      1593, 1640, 1742, 1860, 1949, 2020, 2140, 2350, 2550, 2700, 2867,
+      2980, 3073, 3120, 3255, 3350, 3489, 3526, 3623, 3700, 3804, 3965
+    ],
+    "length": 3970,
+    "label": "1"
+  },
+  {
+    "video": "v=DD3jfKr8e-k__#00-00-00_00-01-40_label_B4-0-0",
+    "temporal_label": [0, 2400],
+    "length": 2402,
+    "label": "1"
+  },
+  {
+    "video": "v=y1z12D5bx7c__#1_label_B4-0-0",
+    "temporal_label": [0, 4847],
+    "length": 4850,
+    "label": "1"
+  },
+  {
+    "video": "Bullet.in.the.Head.1990__#02-02-00_02-05-22_label_B2-B6-G",
+    "temporal_label": [0, 35, 203, 860, 1005, 1465, 2130, 2380, 2860, 3250, 3541, 4346],
+    "length": 4849,
+    "label": "1"
+  },
+  {
+    "video": "v=38GQ9L2meyE__#1_label_B6-0-0",
+    "temporal_label": [
+      26, 80, 210, 288, 377, 396, 450, 517, 597, 628, 650, 850, 895,
+      973, 1106, 1226, 1330, 1400, 1490, 1675, 1713, 1820, 1890, 1980,
+      2025, 2100, 2177, 2290, 2375, 2450, 2579, 2655, 2657, 3045, 3091,
+      3170, 3259, 3475, 3571, 4060, 4143, 4288, 4364, 4450
+    ],
+    "length": 4650,
+    "label": "1"
+  },
+  {
+    "video": "v=IWzI9V3WSnc__#1_label_B4-0-0",
+    "temporal_label": [4, 2687],
+    "length": 2689,
+    "label": "1"
+  }
+]

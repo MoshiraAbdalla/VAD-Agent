@@ -1,0 +1,159 @@
+{
+  "ucf_sampling_ablation": [
+    {
+      "variant": "Uniform for both agents",
+      "context_frames": 8,
+      "reasoning_frames": 8,
+      "auc": 0.792794417
+    },
+    {
+      "variant": "MIF for both agents",
+      "context_frames": 8,
+      "reasoning_frames": 8,
+      "auc": 0.802549996
+    },
+    {
+      "variant": "Uniform context + MIF reasoning",
+      "context_frames": 8,
+      "reasoning_frames": 8,
+      "auc": 0.800478823
+    },
+    {
+      "variant": "Uniform context + MIF reasoning",
+      "context_frames": 16,
+      "reasoning_frames": 8,
+      "auc": 0.83043816
+    }
+  ],
+  "ucf_temporal_refinement_ablation": [
+    {
+      "operation": "Initial segment scores",
+      "auc": 0.720804341,
+      "delta_pp": null
+    },
+    {
+      "operation": "Initial + similarity retrieval",
+      "auc": 0.756955693,
+      "delta_pp": 3.62
+    },
+    {
+      "operation": "Initial + similarity retrieval + Gaussian smoothing",
+      "auc": 0.823053765,
+      "delta_pp": 6.61
+    },
+    {
+      "operation": "Full refinement with position weighting",
+      "auc": 0.828316886,
+      "delta_pp": 0.53
+    },
+    {
+      "operation": "Full refinement + 0.1 direct segment fusion",
+      "auc": 0.83043816,
+      "delta_pp": 0.21
+    }
+  ],
+  "stride_ablation": {
+    "ucf_crime": [
+      {
+        "stride": 300,
+        "auc": 0.797403969
+      },
+      {
+        "stride": 150,
+        "auc": 0.83043816
+      },
+      {
+        "stride": 64,
+        "auc": 0.798151639
+      }
+    ],
+    "xd_violence": [
+      {
+        "stride": 300,
+        "ap": 0.581641209,
+        "auc": 0.836842201
+      },
+      {
+        "stride": 150,
+        "ap": 0.585271746,
+        "auc": 0.840377058
+      },
+      {
+        "stride": 64,
+        "ap": 0.591460854,
+        "auc": 0.846424071
+      }
+    ]
+  },
+  "context_memory_ablation": [
+    {
+      "configuration": "Context Agent only",
+      "auc": 0.777274305,
+      "reported_auc_percent": 77.73
+    },
+    {
+      "configuration": "Previous reasoning memory",
+      "auc": 0.809597982,
+      "reported_auc_percent": 80.96
+    },
+    {
+      "configuration": "Full VAD-Agent",
+      "auc": 0.83043816,
+      "reported_auc_percent": 83.04
+    }
+  ],
+  "narrative_backbone_ablation": [
+    {
+      "narrative_agent": "LLaMA",
+      "reasoning_agent": "InternVL2-8B",
+      "auc": 0.793613153,
+      "reported_auc_percent": 79.36
+    },
+    {
+      "narrative_agent": "InternVL2-8B",
+      "reasoning_agent": "InternVL2-8B",
+      "auc": 0.83043816,
+      "reported_auc_percent": 83.04
+    }
+  ],
+  "hivau_ucf60_sampling_ablation": [
+    {
+      "variant": "Uniform for both agents",
+      "context_frames": 8,
+      "reasoning_frames": 8,
+      "subset_videos": 60,
+      "video_list": "data/annotations/hivau_test_ucf_crime_videos.txt",
+      "score_folder": "results/predictions/ablation_ucf_uniform8_uniform8",
+      "auc": 0.8397894330734083,
+      "reported_auc_percent": 83.98
+    },
+    {
+      "variant": "MIF for both agents",
+      "context_frames": 8,
+      "reasoning_frames": 8,
+      "subset_videos": 60,
+      "video_list": "data/annotations/hivau_test_ucf_crime_videos.txt",
+      "score_folder": "results/predictions/ablation_ucf_mif8_mif8",
+      "auc": 0.8547504183245694,
+      "reported_auc_percent": 85.48
+    },
+    {
+      "variant": "Uniform context + MIF reasoning",
+      "context_frames": 8,
+      "reasoning_frames": 8,
+      "subset_videos": 60,
+      "video_list": "data/annotations/hivau_test_ucf_crime_videos.txt",
+      "score_folder": "results/predictions/ablation_ucf_uniform8_mif8",
+      "auc": 0.8685767404179722,
+      "reported_auc_percent": 86.86
+    }
+  ],
+  "evaluation_protocol": {
+    "projection": "saved-start stride",
+    "gap_policy": "hold",
+    "initial_score": 0,
+    "full_refinement_direct_weight": 0.1,
+    "full_refinement_temporal_weight": 0.9,
+    "position_weighting": true
+  }
+}

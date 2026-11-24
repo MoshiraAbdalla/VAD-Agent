@@ -1,0 +1,44 @@
+{
+  "id": "qualitative_xd_normal",
+  "print_width_inches": 7.1,
+  "print_height_inches": 6.597083333333333,
+  "frame_panel_pixels": [
+    660,
+    371
+  ],
+  "body_font_points": 9.584999999999999,
+  "minimum_plot_font_points": 9.5,
+  "full_agent_outputs": true,
+  "projection_mode": "stride",
+  "gap_policy": "hold",
+  "cases": [
+    {
+      "id": "qualitative_xd_normal",
+      "dataset": "xd",
+      "video": "The.Bourne.Ultimatum.2007__#0-55-55_0-56-10_label_A",
+      "score_source": "results\\predictions\\xd_violence_mif_stride64_2\\The.Bourne.Ultimatum.2007__#0-55-55_0-56-10_label_A.json",
+      "score_sha256": "22f2061df59fbc72ada4391b06dc072df612d537710bb48af1063ed66170c0f4",
+      "agent_source": "results\\predictions\\xd_violence_mif_stride64_2\\The.Bourne.Ultimatum.2007__#0-55-55_0-56-10_label_A.json",
+      "agent_sha256": "22f2061df59fbc72ada4391b06dc072df612d537710bb48af1063ed66170c0f4",
+      "feature_source": "results\\cached_features\\xd_violence_stride64\\The.Bourne.Ultimatum.2007__#0-55-55_0-56-10_label_A.npy",
+      "feature_sha256": "f6b5bd4ed2d4f50ad32171633e5c3513377433c7cc31b215dd3e4039b5d79523",
+      "ground_truth_intervals": [],
+      "n_segments": 6,
+      "curve_alignment": "exact",
+      "snapshots": [
+        {
+          "frame": 75,
+          "start": 64,
+          "end": 361,
+          "label": 0,
+          "frame_sha256": "47d76e9219016c101ac4162d6d5638f38ed0eb465a1963604ca556a4bc52041c",
+          "agent_outputs": {
+            "summarization_agent": "Summary: In the city, a man rides a motorcycle, using a smartphone for navigation or communication, while another man walks nearby.\nKey Entities: Man on motorcycle, man walking\nScene Setting: City street",
+            "context_agent": "Context Summary: A man is riding a motorcycle in a city, using a smartphone to navigate or communicate. He appears focused and determined.\nKey Entities: Man, motorcycle, smartphone\nScene Setting: City street",
+            "reasoning_agent": "Answers to Prompt Questions: \n1. No, there are no frames where the video content shows an object or person performing an unusual action that does not fit the usual pattern of the video content.\n2. No, there are no frames where the video content shows an object or person behaving in a way that is clearly abnormal or unexpected.\n3. No, there are no frames where the video content shows a clear indication of an anomaly in the behavior of objects or people, such as an object moving in an unexpected way or a person performing an unusual action.\n4. No, there are no frames where the video content shows a player or object being out of place or not fitting the usual pattern of the video content.\n5. No, there are no frames where the video content shows a disruption in the normal flow of the video, such as a sudden change in the camera angle or a loss of video quality.\n\nOutput: 0"
+          }
+        }
+      ]
+    }
+  ]
+}

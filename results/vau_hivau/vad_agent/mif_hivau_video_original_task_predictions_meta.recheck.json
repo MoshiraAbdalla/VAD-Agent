@@ -1,0 +1,21 @@
+﻿{
+  "instructions": "data\\annotations\\hivau_merge_instruction_test_final.jsonl",
+  "ucf_score_folder": "results\\predictions\\ucf_crime_mif_stride150",
+  "xd_score_folder": "results\\predictions\\xd_violence_mif_stride150",
+  "input_instruction_rows": 3339,
+  "input_video_instruction_rows": 398,
+  "output_rows": 398,
+  "task_counts": {
+    "judgement": 150,
+    "description": 150,
+    "analysis": 98
+  },
+  "missing_count": 0,
+  "missing": [],
+  "mapping": {
+    "judgement": "Derived anomaly/no-anomaly answer from MIF selected evidence segments.",
+    "description": "MIF summarization_agent from selected abnormal segments; normal videos use last summaries plus context.",
+    "analysis": "MIF reasoning_agent from selected evidence segments."
+  },
+  "id_policy": "id is the original HIVAU instruction id; video_id appends #instruction_<id> to keep metric item ids unique."
+}

@@ -1,0 +1,12 @@
+﻿{
+  "source_workspace_root": "D:/Moshira Research/VERA-main-cvpr2025/MDF_VAD",
+  "holmes_root": "D:/Moshira Research/HolmesVAU-master",
+  "vadtree_root": "D:/Moshira Research/VADTree-main",
+  "ucf_frames": "D:/Moshira Research/VERA-main-cvpr2025/MDF_VAD/data/ucf/frames",
+  "xd_frames": "D:/Moshira Research/VERA-main-cvpr2025/MDF_VAD/data/xd/frames",
+  "hivau_instructions": "D:/Moshira Research/HolmesVAU-master/HIVAU-70k/instruction/merge_instruction_test_final.jsonl",
+  "roberta_large": "roberta-large",
+  "holmes_python": "D:/envs/holmesvau/python.exe",
+  "torch_gpu_python": "C:/Users/Moshira/anaconda3/envs/torch-gpu/python.exe",
+  "default_python": "C:/Users/Moshira/anaconda3/python.exe"
+}

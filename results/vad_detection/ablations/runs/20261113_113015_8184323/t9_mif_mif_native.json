@@ -1,0 +1,28 @@
+﻿{
+  "dataset": "paper_table9_mif_mif",
+  "ann_root": "data/annotations/UCF_Eval.json",
+  "video_list": "data/annotations/hivau_test_ucf_crime_videos.txt",
+  "score_folder": "results/predictions/ablation_ucf_mif8_mif8",
+  "vision_folder": "results/cached_features/ucf_crime_stride150",
+  "subset_videos": 60,
+  "videos_used": 60,
+  "missing_videos": [],
+  "AUC": 0.8547504183245694,
+  "AP": 0.2604547022500614,
+  "params": {
+    "top_ratio": 0.1,
+    "temp": 10.0,
+    "smooth_size": 15,
+    "smooth_sigma": 10.0,
+    "projection_mode": "stride",
+    "gap_policy": "hold",
+    "sampling_rate": -1,
+    "include_self_sim": true,
+    "apply_position_weight": true,
+    "position_weight_sigma": -1.0,
+    "fuse_direct_segment_score": true,
+    "direct_segment_weight": 0.1
+  },
+  "alignment_by_start_videos": 0,
+  "fallback_truncate_videos": 0
+}

@@ -1,0 +1,216 @@
+[
+  {
+    "id": "qualitative_ucf_abnormal",
+    "print_width_inches": 7.1,
+    "print_height_inches": 8.585083333333332,
+    "frame_panel_pixels": [
+      660,
+      371
+    ],
+    "body_font_points": 9.584999999999999,
+    "minimum_plot_font_points": 9.5,
+    "full_agent_outputs": true,
+    "projection_mode": "stride",
+    "gap_policy": "hold",
+    "cases": [
+      {
+        "id": "qualitative_ucf_abnormal",
+        "dataset": "ucf",
+        "video": "Explosion033_x264",
+        "score_source": "results\\predictions\\ucf_crime_mif_stride150\\Explosion033_x264.json",
+        "score_sha256": "487023e0fa260de28d3ddb608c41715b5d9613662b6c909f1c00809ac5d85e27",
+        "agent_source": "results\\predictions\\ucf_crime_mif_stride150\\Explosion033_x264.json",
+        "agent_sha256": "487023e0fa260de28d3ddb608c41715b5d9613662b6c909f1c00809ac5d85e27",
+        "feature_source": "results\\cached_features\\ucf_crime_stride150\\Explosion033_x264.npy",
+        "feature_sha256": "ff05615b925ed2e4727cece31daaffb84043606cda84f8f0df67a38abb85d147",
+        "ground_truth_intervals": [
+          [
+            970,
+            1350
+          ],
+          [
+            1550,
+            3154
+          ]
+        ],
+        "n_segments": 22,
+        "curve_alignment": "exact",
+        "snapshots": [
+          {
+            "frame": 300,
+            "start": 300,
+            "end": 600,
+            "label": 0,
+            "frame_sha256": "2918489e4f19d22ab5ef057ccdc87b8d90c0c51f2e9b014217bc730e09373bcd",
+            "agent_outputs": {
+              "summarization_agent": "Summary: The video continues to show an industrial area with a large building, a train, and a truck. The scene remains a construction or industrial site with various equipment and vehicles.\nKey Entities: building, train, truck\nScene Setting: industrial area",
+              "context_agent": "Context Summary: The video shows an industrial area with a large building, a train, and a truck. The scene appears to be a construction or industrial site with various equipment and vehicles.\nKey Entities: building, train, truck\nScene Setting: industrial area",
+              "reasoning_agent": "Answers to Prompt Questions: There are no people in the video, and the vehicles and objects are in their typical positions and being used in their usual functions. There is no visible damage or unusual movement, and no unusual sounds or noises are present. Therefore, there is no anomaly in the video.\nOutput: 0"
+            }
+          },
+          {
+            "frame": 2100,
+            "start": 2100,
+            "end": 2400,
+            "label": 1,
+            "frame_sha256": "99ef4fe6670a357b9f18c6547a48a5426464fcddce7852451ddaaa9b9720ffbe",
+            "agent_outputs": {
+              "summarization_agent": "Summary: Initially, a large industrial facility, possibly a gas or oil refinery, is shown with a building engulfed in flames and thick smoke. Firefighters and fire trucks are on the scene, actively working to extinguish the blaze. The video then shifts focus to the industrial oil refinery, showcasing numerous pipes, tanks, and machinery, with smoke emanating from some parts of the facility. The video shows an industrial oil refinery with multiple pipes and structures, with a large fire and smoke billowing from one area.\nKey Entities: Firefighters, fire trucks, industrial facility, building, pipes, tanks, machinery, smoke\nScene Setting: Industrial facility",
+              "context_agent": "Context Summary: The video shows a large industrial oil refinery with multiple pipes and structures, with a massive fire and smoke billowing from the background.\nKey Entities: Pipes, structures, fire, smoke, industrial refinery\nScene Setting: Industrial refinery",
+              "reasoning_agent": "Answers to Prompt Questions: There is a large fire and smoke billowing from one area of the industrial facility, indicating an anomaly. There are no visible people or vehicles in the video, but the fire and smoke suggest an anomaly.\nOutput: 1"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "qualitative_xd_abnormal",
+    "print_width_inches": 7.1,
+    "print_height_inches": 9.002208333333332,
+    "frame_panel_pixels": [
+      660,
+      371
+    ],
+    "body_font_points": 9.584999999999999,
+    "minimum_plot_font_points": 9.5,
+    "full_agent_outputs": true,
+    "projection_mode": "stride",
+    "gap_policy": "hold",
+    "cases": [
+      {
+        "id": "qualitative_xd_abnormal",
+        "dataset": "xd",
+        "video": "Mission.Impossible.Fallout.2018__#00-31-21_00-32-50_label_B1-0-0",
+        "score_source": "results\\predictions\\xd_violence_mif_stride64_2\\Mission.Impossible.Fallout.2018__#00-31-21_00-32-50_label_B1-0-0.json",
+        "score_sha256": "3ca18547d51f0b925c5f0ed6ce7f26e8a87b9321b73fc747c08f16c92472b3ee",
+        "agent_source": "results\\predictions\\xd_violence_mif_stride64_2\\Mission.Impossible.Fallout.2018__#00-31-21_00-32-50_label_B1-0-0.json",
+        "agent_sha256": "3ca18547d51f0b925c5f0ed6ce7f26e8a87b9321b73fc747c08f16c92472b3ee",
+        "feature_source": "results\\cached_features\\xd_violence_stride64\\Mission.Impossible.Fallout.2018__#00-31-21_00-32-50_label_B1-0-0.npy",
+        "feature_sha256": "11a6c7e8d2786af7bd12af54f4b00694016379f21af11ed7b7dc60802392fed0",
+        "ground_truth_intervals": [
+          [
+            96,
+            2125
+          ]
+        ],
+        "n_segments": 34,
+        "curve_alignment": "exact",
+        "snapshots": [
+          {
+            "frame": 100,
+            "start": 64,
+            "end": 364,
+            "label": 1,
+            "frame_sha256": "61e7d2336a07081f07a20cad79f1a1e23d4d4dd27cac4003ce2963a473b1328a",
+            "agent_outputs": {
+              "summarization_agent": "Summary: The man in the white hallway is now in a white, sterile room where a group of men in suits are engaged in a physical altercation. One man is being thrown against a wall and another is being pushed to the ground.\nKey Entities: Men in suits, man, attacker\nScene Setting: White, sterile room",
+              "context_agent": "Context Summary: A group of men in suits are engaged in a physical altercation in a white, sterile room, with one man being thrown against a wall and another being pushed to the ground.\nKey Entities: Men in suits\nScene Setting: White, sterile room",
+              "reasoning_agent": "Answers to Prompt Questions: The video shows a tense and chaotic scene with a man being attacked in a hallway. There are frames where the video content shows an object or person performing an unusual action that does not fit the usual pattern of the video content, such as the man being attacked and the subsequent fight. There are also frames where the video content shows a disruption in the normal flow of the video, such as the sudden change in the camera angle and the loss of video quality. Based on the analysis, there is an anomaly in the video.\nOutput: 1"
+            }
+          },
+          {
+            "frame": 1200,
+            "start": 1152,
+            "end": 1452,
+            "label": 1,
+            "frame_sha256": "e85738770b6dab95940747ec00f0c5628f422188b0c2f0405dbbfb71ee4109c6",
+            "agent_outputs": {
+              "summarization_agent": "Summary: In the white hallway, a man in a suit is seen running and falling, while another man in a suit is engaged in a fight with another man. A third man is running towards them. The scene is chaotic, with people running and falling in the hallway. Then, in the office hallway, a tense confrontation between two men occurs, with one man throwing punches and the other trying to defend himself.\nKey Entities: Man in suit, hallway, falling, fighting, man running, two men\nScene Setting: White hallway, office hallway",
+              "context_agent": "Context Summary: A tense confrontation between two men in a modern office hallway, with one man throwing punches and the other trying to defend himself.\nKey Entities: two men\nScene Setting: office hallway",
+              "reasoning_agent": "Answers to Prompt Questions: There are frames where the video content shows an object or person performing an unusual action that does not fit the usual pattern of the video content. Specifically, the men are engaged in a fight, which is not a typical behavior in a hallway setting. Additionally, there are frames where the video content shows a disruption in the normal flow of the video, such as a sudden change in the camera angle and a loss of video quality.\nOutput: 1"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "qualitative_ucf_normal",
+    "print_width_inches": 7.1,
+    "print_height_inches": 6.4580416666666665,
+    "frame_panel_pixels": [
+      660,
+      371
+    ],
+    "body_font_points": 9.584999999999999,
+    "minimum_plot_font_points": 9.5,
+    "full_agent_outputs": true,
+    "projection_mode": "stride",
+    "gap_policy": "hold",
+    "cases": [
+      {
+        "id": "qualitative_ucf_normal",
+        "dataset": "ucf",
+        "video": "Normal_Videos_050_x264",
+        "score_source": "results\\predictions\\ucf_crime_mif_stride150\\Normal_Videos_050_x264.json",
+        "score_sha256": "31865890788df31aa84a58d2bedd23677636212d53f4746ec8d48f95a66f11bb",
+        "agent_source": "results\\predictions\\ucf_crime_mif_stride150\\Normal_Videos_050_x264.json",
+        "agent_sha256": "31865890788df31aa84a58d2bedd23677636212d53f4746ec8d48f95a66f11bb",
+        "feature_source": "results\\cached_features\\ucf_crime_stride150\\Normal_Videos_050_x264.npy",
+        "feature_sha256": "7bf532c6c671d24025b2bd2fb26b3bf577e6e2ff0d40c9afd8f90d4370bedb3b",
+        "ground_truth_intervals": [],
+        "n_segments": 28,
+        "curve_alignment": "exact",
+        "snapshots": [
+          {
+            "frame": 2250,
+            "start": 2250,
+            "end": 2550,
+            "label": 0,
+            "frame_sha256": "eb127c53e0e7ec1c8dc68a2eca0f1993fb996040d0b7803db6a1d64b93117c0b",
+            "agent_outputs": {
+              "summarization_agent": "Summary: The video captures a bustling urban street during rush hour, with multiple lanes filled with cars and buses. Pedestrians are walking alongside the road, and traffic lights and road signs are visible. The scene is set in a city with buildings, trees, and clear weather.\nKey Entities: Cars, buses, pedestrians, traffic lights, road signs, trees, buildings\nScene Setting: Urban street",
+              "context_agent": "Context Summary: A busy urban street with multiple lanes filled with cars and buses, indicating a typical rush hour traffic scenario.\nKey Entities: Cars, buses, road, traffic lights, pedestrians\nScene Setting: Urban street",
+              "reasoning_agent": "Answers to Prompt Questions: \n1. No, there are no people in the video who are not in their typical positions or engaging in activities that are not consistent with their usual behavior.\n2. No, there are no vehicles in the video that are not in their typical positions or being used in a way that is not consistent with their usual function.\n3. No, there are no objects in the video that are not in their typical positions or being used in a way that is not consistent with their usual function.\n4. No, there is no visible damage or unusual movement in the video that indicates an anomaly.\n5. No, there are no unusual sounds or noises in the video that suggest an anomaly.\n\nOutput: 0"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "qualitative_xd_normal",
+    "print_width_inches": 7.1,
+    "print_height_inches": 6.597083333333333,
+    "frame_panel_pixels": [
+      660,
+      371
+    ],
+    "body_font_points": 9.584999999999999,
+    "minimum_plot_font_points": 9.5,
+    "full_agent_outputs": true,
+    "projection_mode": "stride",
+    "gap_policy": "hold",
+    "cases": [
+      {
+        "id": "qualitative_xd_normal",
+        "dataset": "xd",
+        "video": "The.Bourne.Ultimatum.2007__#0-55-55_0-56-10_label_A",
+        "score_source": "results\\predictions\\xd_violence_mif_stride64_2\\The.Bourne.Ultimatum.2007__#0-55-55_0-56-10_label_A.json",
+        "score_sha256": "22f2061df59fbc72ada4391b06dc072df612d537710bb48af1063ed66170c0f4",
+        "agent_source": "results\\predictions\\xd_violence_mif_stride64_2\\The.Bourne.Ultimatum.2007__#0-55-55_0-56-10_label_A.json",
+        "agent_sha256": "22f2061df59fbc72ada4391b06dc072df612d537710bb48af1063ed66170c0f4",
+        "feature_source": "results\\cached_features\\xd_violence_stride64\\The.Bourne.Ultimatum.2007__#0-55-55_0-56-10_label_A.npy",
+        "feature_sha256": "f6b5bd4ed2d4f50ad32171633e5c3513377433c7cc31b215dd3e4039b5d79523",
+        "ground_truth_intervals": [],
+        "n_segments": 6,
+        "curve_alignment": "exact",
+        "snapshots": [
+          {
+            "frame": 75,
+            "start": 64,
+            "end": 361,
+            "label": 0,
+            "frame_sha256": "47d76e9219016c101ac4162d6d5638f38ed0eb465a1963604ca556a4bc52041c",
+            "agent_outputs": {
+              "summarization_agent": "Summary: In the city, a man rides a motorcycle, using a smartphone for navigation or communication, while another man walks nearby.\nKey Entities: Man on motorcycle, man walking\nScene Setting: City street",
+              "context_agent": "Context Summary: A man is riding a motorcycle in a city, using a smartphone to navigate or communicate. He appears focused and determined.\nKey Entities: Man, motorcycle, smartphone\nScene Setting: City street",
+              "reasoning_agent": "Answers to Prompt Questions: \n1. No, there are no frames where the video content shows an object or person performing an unusual action that does not fit the usual pattern of the video content.\n2. No, there are no frames where the video content shows an object or person behaving in a way that is clearly abnormal or unexpected.\n3. No, there are no frames where the video content shows a clear indication of an anomaly in the behavior of objects or people, such as an object moving in an unexpected way or a person performing an unusual action.\n4. No, there are no frames where the video content shows a player or object being out of place or not fitting the usual pattern of the video content.\n5. No, there are no frames where the video content shows a disruption in the normal flow of the video, such as a sudden change in the camera angle or a loss of video quality.\n\nOutput: 0"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

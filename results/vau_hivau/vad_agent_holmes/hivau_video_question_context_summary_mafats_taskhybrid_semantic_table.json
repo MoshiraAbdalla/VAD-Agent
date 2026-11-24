@@ -1,0 +1,261 @@
+{
+  "input": "results\\vau_hivau\\vad_agent_holmes\\hivau_video_question_context_summary_mafats_taskhybrid_predictions.json",
+  "instructions": "data\\annotations\\hivau_merge_instruction_test_final.jsonl",
+  "protocol": "question_aligned_rows",
+  "dataset_filter": "all",
+  "num_items": 398,
+  "metrics": {
+    "BLEU-1": 0.3235414030675329,
+    "BLEU-2": 0.2064815307124332,
+    "BLEU-3": 0.14704823104603398,
+    "BLEU-4": 0.10998904223117383,
+    "BLEU": [
+      0.3235414030675329,
+      0.2064815307124332,
+      0.14704823104603398,
+      0.10998904223117383
+    ],
+    "BLEU_acc": 0.7870602070571737,
+    "ROUGE": 0.3917659300908903,
+    "CIDEr": 1.5741358898975488,
+    "BeScore": 0.9096454083919525,
+    "BERTScore": 0.9096454083919525,
+    "PaScore": 0.9106987249012568
+  },
+  "overall": {
+    "num_items": 398,
+    "summary": {
+      "num_items": 398,
+      "avg_pred_words": 36.46482412060301,
+      "avg_ref_words": 38.37437185929648,
+      "avg_refs_per_item": 1.0
+    },
+    "metrics": {
+      "BLEU-1": 0.3235414030675329,
+      "BLEU-2": 0.2064815307124332,
+      "BLEU-3": 0.14704823104603398,
+      "BLEU-4": 0.10998904223117383,
+      "BLEU": [
+        0.3235414030675329,
+        0.2064815307124332,
+        0.14704823104603398,
+        0.10998904223117383
+      ],
+      "BLEU_acc": 0.7870602070571737,
+      "ROUGE": 0.3917659300908903,
+      "CIDEr": 1.5741358898975488,
+      "BeScore": 0.9096454083919525,
+      "BERTScore": 0.9096454083919525,
+      "PaScore": 0.9106987249012568
+    },
+    "skipped": {
+      "METEOR": "Java was not found on PATH; pycocoevalcap METEOR requires Java."
+    },
+    "timings_seconds": {
+      "BLEU": 0.03,
+      "ROUGE": 0.101,
+      "BeScore": 4.156,
+      "PaScore": 2.996
+    },
+    "total_seconds": 7.409
+  },
+  "by_task": {
+    "analysis": {
+      "num_items": 98,
+      "summary": {
+        "num_items": 98,
+        "avg_pred_words": 28.112244897959183,
+        "avg_ref_words": 35.224489795918366,
+        "avg_refs_per_item": 1.0
+      },
+      "metrics": {
+        "BLEU-1": 0.3221443270691976,
+        "BLEU-2": 0.19210356770899187,
+        "BLEU-3": 0.13255514535760518,
+        "BLEU-4": 0.09649870968263427,
+        "BLEU": [
+          0.3221443270691976,
+          0.19210356770899187,
+          0.13255514535760518,
+          0.09649870968263427
+        ],
+        "BLEU_acc": 0.7433017498184289,
+        "ROUGE": 0.28159183108649705,
+        "CIDEr": 0.24546945026264558,
+        "BeScore": 0.8985952479498727,
+        "BERTScore": 0.8985952479498727,
+        "PaScore": 0.9008007913219686
+      },
+      "skipped": {
+        "METEOR": "Java was not found on PATH; pycocoevalcap METEOR requires Java."
+      },
+      "timings_seconds": {
+        "BLEU": 0.007,
+        "ROUGE": 0.012,
+        "BeScore": 1.317,
+        "PaScore": 1.332
+      },
+      "total_seconds": 2.702
+    },
+    "description": {
+      "num_items": 150,
+      "summary": {
+        "num_items": 150,
+        "avg_pred_words": 69.49333333333334,
+        "avg_ref_words": 69.96,
+        "avg_refs_per_item": 1.0
+      },
+      "metrics": {
+        "BLEU-1": 0.28882523002545935,
+        "BLEU-2": 0.17163893463012958,
+        "BLEU-3": 0.11306053273066877,
+        "BLEU-4": 0.07851231985222513,
+        "BLEU": [
+          0.28882523002545935,
+          0.17163893463012958,
+          0.11306053273066877,
+          0.07851231985222513
+        ],
+        "BLEU_acc": 0.6520370172384828,
+        "ROUGE": 0.25085303994336433,
+        "CIDEr": 0.13732756001990953,
+        "BeScore": 0.8781395963827769,
+        "BERTScore": 0.8781395963827769,
+        "PaScore": 0.8783338983853658
+      },
+      "skipped": {
+        "METEOR": "Java was not found on PATH; pycocoevalcap METEOR requires Java."
+      },
+      "timings_seconds": {
+        "BLEU": 0.021,
+        "ROUGE": 0.091,
+        "BeScore": 2.608,
+        "PaScore": 2.554
+      },
+      "total_seconds": 5.355
+    },
+    "judgement": {
+      "num_items": 150,
+      "summary": {
+        "num_items": 150,
+        "avg_pred_words": 8.893333333333333,
+        "avg_ref_words": 8.846666666666666,
+        "avg_refs_per_item": 1.0
+      },
+      "metrics": {
+        "BLEU-1": 0.5802098950520388,
+        "BLEU-2": 0.5013896871492257,
+        "BLEU-3": 0.44806806639199803,
+        "BLEU-4": 0.40485164686391084,
+        "BLEU": [
+          0.5802098950520388,
+          0.5013896871492257,
+          0.44806806639199803,
+          0.40485164686391084
+        ],
+        "BLEU_acc": 1.9345192954571733,
+        "ROUGE": 0.6046592315879532,
+        "CIDEr": 3.6341444275898014,
+        "BeScore": 0.9483706557750702,
+        "BERTScore": 0.9483706557750702,
+        "PaScore": 0.9495302112897237
+      },
+      "skipped": {
+        "METEOR": "Java was not found on PATH; pycocoevalcap METEOR requires Java."
+      },
+      "timings_seconds": {
+        "BLEU": 0.003,
+        "ROUGE": 0.002,
+        "BeScore": 1.029,
+        "PaScore": 1.092
+      },
+      "total_seconds": 2.144
+    }
+  },
+  "table": [
+    {
+      "split": "overall",
+      "num_items": 398,
+      "BLEU": "0.787",
+      "CIDEr": "1.574",
+      "METEOR": "",
+      "ROUGE": "0.392",
+      "BERTScore": "0.910",
+      "PaScore": "0.911"
+    },
+    {
+      "split": "analysis",
+      "num_items": 98,
+      "BLEU": "0.743",
+      "CIDEr": "0.245",
+      "METEOR": "",
+      "ROUGE": "0.282",
+      "BERTScore": "0.899",
+      "PaScore": "0.901"
+    },
+    {
+      "split": "description",
+      "num_items": 150,
+      "BLEU": "0.652",
+      "CIDEr": "0.137",
+      "METEOR": "",
+      "ROUGE": "0.251",
+      "BERTScore": "0.878",
+      "PaScore": "0.878"
+    },
+    {
+      "split": "judgement",
+      "num_items": 150,
+      "BLEU": "1.935",
+      "CIDEr": "3.634",
+      "METEOR": "",
+      "ROUGE": "0.605",
+      "BERTScore": "0.948",
+      "PaScore": "0.950"
+    }
+  ],
+  "outputs": {
+    "json": "results\\vau_hivau\\vad_agent_holmes\\hivau_video_question_context_summary_mafats_taskhybrid_semantic_table.json",
+    "table_csv": "results\\vau_hivau\\vad_agent_holmes\\hivau_video_question_context_summary_mafats_taskhybrid_semantic_table.csv",
+    "table_md": "results\\vau_hivau\\vad_agent_holmes\\hivau_video_question_context_summary_mafats_taskhybrid_semantic_table.md",
+    "synced_predictions": "results\\vau_hivau\\vad_agent_holmes\\hivau_video_question_context_summary_mafats_taskhybrid_predictions_task_synced.json"
+  },
+  "sync_report": {
+    "instructions": "data\\annotations\\hivau_merge_instruction_test_final.jsonl",
+    "dataset_filter": "all",
+    "dataset_counts": {
+      "ucf": 157,
+      "xd": 241
+    },
+    "filtered_out_rows": 0,
+    "changed_task_role": 0,
+    "missing_instruction_ids": [],
+    "mismatches": [],
+    "num_input_rows": 398,
+    "num_metric_rows": 398,
+    "num_skipped_rows": 0,
+    "skipped_rows": [],
+    "num_mismatches": 0,
+    "num_missing_instruction_ids": 0
+  },
+  "notes": {
+    "alignment": "Each row is one original HIVAU question; metric IDs are unique per row, so repeated video_id values cannot overwrite rows.",
+    "task_labels": "When --instructions is supplied, task_role/task are copied from the HIVAU GT task field.",
+    "BLEU": "The table BLEU column is BLEU_acc = BLEU-1 + BLEU-2 + BLEU-3 + BLEU-4.",
+    "CIDEr": "CIDEr is computed on the same question-aligned rows, not grouped per-video refs.",
+    "BERTScore": "The JSON keeps the existing BeScore key and also adds BERTScore as an alias when computed."
+  },
+  "settings": {
+    "meteor_timeout": 300,
+    "meteor_per_item": false,
+    "meteor_max_words": null,
+    "bertscore": true,
+    "bertscore_model": "roberta-large",
+    "parascore": true,
+    "parascore_model": "roberta-large",
+    "parascore_mode": "similarity",
+    "cider_tokenizer": "simple",
+    "dataset_filter": "all"
+  },
+  "total_seconds": 17.61
+}

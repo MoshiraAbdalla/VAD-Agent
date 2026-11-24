@@ -1,0 +1,65 @@
+{
+  "id": "qualitative_ucf_abnormal",
+  "print_width_inches": 7.1,
+  "print_height_inches": 8.585083333333332,
+  "frame_panel_pixels": [
+    660,
+    371
+  ],
+  "body_font_points": 9.584999999999999,
+  "minimum_plot_font_points": 9.5,
+  "full_agent_outputs": true,
+  "projection_mode": "stride",
+  "gap_policy": "hold",
+  "cases": [
+    {
+      "id": "qualitative_ucf_abnormal",
+      "dataset": "ucf",
+      "video": "Explosion033_x264",
+      "score_source": "results\\predictions\\ucf_crime_mif_stride150\\Explosion033_x264.json",
+      "score_sha256": "487023e0fa260de28d3ddb608c41715b5d9613662b6c909f1c00809ac5d85e27",
+      "agent_source": "results\\predictions\\ucf_crime_mif_stride150\\Explosion033_x264.json",
+      "agent_sha256": "487023e0fa260de28d3ddb608c41715b5d9613662b6c909f1c00809ac5d85e27",
+      "feature_source": "results\\cached_features\\ucf_crime_stride150\\Explosion033_x264.npy",
+      "feature_sha256": "ff05615b925ed2e4727cece31daaffb84043606cda84f8f0df67a38abb85d147",
+      "ground_truth_intervals": [
+        [
+          970,
+          1350
+        ],
+        [
+          1550,
+          3154
+        ]
+      ],
+      "n_segments": 22,
+      "curve_alignment": "exact",
+      "snapshots": [
+        {
+          "frame": 300,
+          "start": 300,
+          "end": 600,
+          "label": 0,
+          "frame_sha256": "2918489e4f19d22ab5ef057ccdc87b8d90c0c51f2e9b014217bc730e09373bcd",
+          "agent_outputs": {
+            "summarization_agent": "Summary: The video continues to show an industrial area with a large building, a train, and a truck. The scene remains a construction or industrial site with various equipment and vehicles.\nKey Entities: building, train, truck\nScene Setting: industrial area",
+            "context_agent": "Context Summary: The video shows an industrial area with a large building, a train, and a truck. The scene appears to be a construction or industrial site with various equipment and vehicles.\nKey Entities: building, train, truck\nScene Setting: industrial area",
+            "reasoning_agent": "Answers to Prompt Questions: There are no people in the video, and the vehicles and objects are in their typical positions and being used in their usual functions. There is no visible damage or unusual movement, and no unusual sounds or noises are present. Therefore, there is no anomaly in the video.\nOutput: 0"
+          }
+        },
+        {
+          "frame": 2100,
+          "start": 2100,
+          "end": 2400,
+          "label": 1,
+          "frame_sha256": "99ef4fe6670a357b9f18c6547a48a5426464fcddce7852451ddaaa9b9720ffbe",
+          "agent_outputs": {
+            "summarization_agent": "Summary: Initially, a large industrial facility, possibly a gas or oil refinery, is shown with a building engulfed in flames and thick smoke. Firefighters and fire trucks are on the scene, actively working to extinguish the blaze. The video then shifts focus to the industrial oil refinery, showcasing numerous pipes, tanks, and machinery, with smoke emanating from some parts of the facility. The video shows an industrial oil refinery with multiple pipes and structures, with a large fire and smoke billowing from one area.\nKey Entities: Firefighters, fire trucks, industrial facility, building, pipes, tanks, machinery, smoke\nScene Setting: Industrial facility",
+            "context_agent": "Context Summary: The video shows a large industrial oil refinery with multiple pipes and structures, with a massive fire and smoke billowing from the background.\nKey Entities: Pipes, structures, fire, smoke, industrial refinery\nScene Setting: Industrial refinery",
+            "reasoning_agent": "Answers to Prompt Questions: There is a large fire and smoke billowing from one area of the industrial facility, indicating an anomaly. There are no visible people or vehicles in the video, but the fire and smoke suggest an anomaly.\nOutput: 1"
+          }
+        }
+      ]
+    }
+  ]
+}

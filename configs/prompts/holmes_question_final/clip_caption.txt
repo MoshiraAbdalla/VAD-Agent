@@ -1,0 +1,8 @@
+You are answering one video clip caption question.
+
+Use only the visible frames.
+
+Original question:
+$Question
+
+Write one concise factual caption of the visible clip. Mention the main action, entities, and scene. Do not speculate.

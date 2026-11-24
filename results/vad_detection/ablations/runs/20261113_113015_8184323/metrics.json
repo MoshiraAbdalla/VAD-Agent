@@ -1,0 +1,173 @@
+﻿[
+    {
+        "table":  5,
+        "id":  "t5_context_only",
+        "dataset":  "ucf",
+        "auc":  0.777274305,
+        "ap":  null,
+        "videos_used":  290,
+        "missing_videos":  0
+    },
+    {
+        "table":  5,
+        "id":  "t5_reasoning_memory",
+        "dataset":  "ucf",
+        "auc":  0.809597982,
+        "ap":  null,
+        "videos_used":  290,
+        "missing_videos":  0
+    },
+    {
+        "table":  5,
+        "id":  "t5_full",
+        "dataset":  "ucf",
+        "auc":  0.83043816,
+        "ap":  null,
+        "videos_used":  290,
+        "missing_videos":  0
+    },
+    {
+        "table":  6,
+        "id":  "t6_ucf_stride300",
+        "dataset":  "ucf",
+        "auc":  0.797403969,
+        "ap":  null,
+        "videos_used":  290,
+        "missing_videos":  0
+    },
+    {
+        "table":  6,
+        "id":  "t6_ucf_stride150",
+        "dataset":  "ucf",
+        "auc":  0.83043816,
+        "ap":  null,
+        "videos_used":  290,
+        "missing_videos":  0
+    },
+    {
+        "table":  6,
+        "id":  "t6_ucf_stride64",
+        "dataset":  "ucf",
+        "auc":  0.798151639,
+        "ap":  null,
+        "videos_used":  290,
+        "missing_videos":  0
+    },
+    {
+        "table":  6,
+        "id":  "t6_xd_stride300",
+        "dataset":  "xd",
+        "auc":  0.836842201,
+        "ap":  0.581641209,
+        "videos_used":  800,
+        "missing_videos":  0
+    },
+    {
+        "table":  6,
+        "id":  "t6_xd_stride150",
+        "dataset":  "xd",
+        "auc":  0.840377058,
+        "ap":  0.585271746,
+        "videos_used":  800,
+        "missing_videos":  0
+    },
+    {
+        "table":  6,
+        "id":  "t6_xd_stride64",
+        "dataset":  "xd",
+        "auc":  0.84642407099999994,
+        "ap":  0.591460854,
+        "videos_used":  800,
+        "missing_videos":  0
+    },
+    {
+        "table":  7,
+        "id":  "t7_initial",
+        "dataset":  "ucf",
+        "auc":  0.720804341,
+        "ap":  null,
+        "videos_used":  290,
+        "missing_videos":  0
+    },
+    {
+        "table":  7,
+        "id":  "t7_retrieval",
+        "dataset":  "ucf",
+        "auc":  0.756955693,
+        "ap":  null,
+        "videos_used":  290,
+        "missing_videos":  0
+    },
+    {
+        "table":  7,
+        "id":  "t7_gaussian",
+        "dataset":  "ucf",
+        "auc":  0.823053765,
+        "ap":  null,
+        "videos_used":  290,
+        "missing_videos":  0
+    },
+    {
+        "table":  7,
+        "id":  "t7_position",
+        "dataset":  "ucf",
+        "auc":  0.828316886,
+        "ap":  null,
+        "videos_used":  290,
+        "missing_videos":  0
+    },
+    {
+        "table":  7,
+        "id":  "t7_fusion",
+        "dataset":  "ucf",
+        "auc":  0.83043816,
+        "ap":  null,
+        "videos_used":  290,
+        "missing_videos":  0
+    },
+    {
+        "table":  8,
+        "id":  "t8_llama",
+        "dataset":  "ucf",
+        "auc":  0.793613153,
+        "ap":  null,
+        "videos_used":  290,
+        "missing_videos":  0
+    },
+    {
+        "table":  8,
+        "id":  "t8_internvl",
+        "dataset":  "ucf",
+        "auc":  0.83043816,
+        "ap":  null,
+        "videos_used":  290,
+        "missing_videos":  0
+    },
+    {
+        "table":  9,
+        "id":  "t9_uniform_uniform",
+        "dataset":  "ucf",
+        "auc":  0.839789433,
+        "ap":  0.275826349,
+        "videos_used":  60,
+        "missing_videos":  0
+    },
+    {
+        "table":  9,
+        "id":  "t9_mif_mif",
+        "dataset":  "ucf",
+        "auc":  0.854750418,
+        "ap":  0.260454702,
+        "videos_used":  60,
+        "missing_videos":  0
+    },
+    {
+        "table":  9,
+        "id":  "t9_uniform_mif",
+        "dataset":  "ucf",
+        "auc":  0.86857674,
+        "ap":  0.268842661,
+        "videos_used":  60,
+        "missing_videos":  0
+    }
+]

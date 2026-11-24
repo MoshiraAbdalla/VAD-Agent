@@ -1,0 +1,262 @@
+﻿{
+  "input": "results\\vau_hivau\\vad_agent_question_conditioned\\hivau_ours_task_labels_question_aligned.json",
+  "instructions": "data\\annotations\\hivau_merge_instruction_test_final.jsonl",
+  "protocol": "question_aligned_rows",
+  "dataset_filter": "all",
+  "num_items": 398,
+  "metrics": {
+    "METEOR": 0.11158778476125109,
+    "BLEU-1": 0.2061002609539026,
+    "BLEU-2": 0.10763380482459062,
+    "BLEU-3": 0.06374172113154382,
+    "BLEU-4": 0.041567396373700466,
+    "BLEU": [
+      0.2061002609539026,
+      0.10763380482459062,
+      0.06374172113154382,
+      0.041567396373700466
+    ],
+    "BLEU_acc": 0.41904318328373746,
+    "ROUGE": 0.29271754631223623,
+    "CIDEr": 1.1693929345200644,
+    "BeScore": 0.8989111316863017,
+    "BERTScore": 0.8989111316863017,
+    "PaScore": 0.8988297725442665
+  },
+  "overall": {
+    "num_items": 398,
+    "summary": {
+      "num_items": 398,
+      "avg_pred_words": 25.94723618090452,
+      "avg_ref_words": 38.37437185929648,
+      "avg_refs_per_item": 1.0
+    },
+    "metrics": {
+      "METEOR": 0.11158778476125109,
+      "BLEU-1": 0.2061002609539026,
+      "BLEU-2": 0.10763380482459062,
+      "BLEU-3": 0.06374172113154382,
+      "BLEU-4": 0.041567396373700466,
+      "BLEU": [
+        0.2061002609539026,
+        0.10763380482459062,
+        0.06374172113154382,
+        0.041567396373700466
+      ],
+      "BLEU_acc": 0.41904318328373746,
+      "ROUGE": 0.29271754631223623,
+      "CIDEr": 1.1693929345200644,
+      "BeScore": 0.8989111316863017,
+      "BERTScore": 0.8989111316863017,
+      "PaScore": 0.8988297725442665
+    },
+    "skipped": {},
+    "timings_seconds": {
+      "METEOR": 5.825,
+      "BLEU": 0.028,
+      "ROUGE": 0.066,
+      "BeScore": 4.236,
+      "PaScore": 3.063
+    },
+    "total_seconds": 13.347
+  },
+  "by_task": {
+    "analysis": {
+      "num_items": 98,
+      "summary": {
+        "num_items": 98,
+        "avg_pred_words": 42.265306122448976,
+        "avg_ref_words": 35.224489795918366,
+        "avg_refs_per_item": 1.0
+      },
+      "metrics": {
+        "METEOR": 0.11281919640495928,
+        "BLEU-1": 0.2269435055528182,
+        "BLEU-2": 0.08541319788164305,
+        "BLEU-3": 0.0349038692551206,
+        "BLEU-4": 0.013493565692342016,
+        "BLEU": [
+          0.2269435055528182,
+          0.08541319788164305,
+          0.0349038692551206,
+          0.013493565692342016
+        ],
+        "BLEU_acc": 0.3607541383819239,
+        "ROUGE": 0.17122876938933532,
+        "CIDEr": 0.08606767410045675,
+        "BeScore": 0.8730190718660549,
+        "BERTScore": 0.8730190718660549,
+        "PaScore": 0.8754367031613175
+      },
+      "skipped": {},
+      "timings_seconds": {
+        "METEOR": 5.569,
+        "BLEU": 0.008,
+        "ROUGE": 0.018,
+        "BeScore": 1.612,
+        "PaScore": 1.551
+      },
+      "total_seconds": 8.796
+    },
+    "description": {
+      "num_items": 150,
+      "summary": {
+        "num_items": 150,
+        "avg_pred_words": 35.63333333333333,
+        "avg_ref_words": 69.96,
+        "avg_refs_per_item": 1.0
+      },
+      "metrics": {
+        "METEOR": 0.09161766200665694,
+        "BLEU-1": 0.1434376728320125,
+        "BLEU-2": 0.07236566132485824,
+        "BLEU-3": 0.03804374259369422,
+        "BLEU-4": 0.022043100214003186,
+        "BLEU": [
+          0.1434376728320125,
+          0.07236566132485824,
+          0.03804374259369422,
+          0.022043100214003186
+        ],
+        "BLEU_acc": 0.27589017696456813,
+        "ROUGE": 0.1851482141925566,
+        "CIDEr": 0.045420852300797045,
+        "BeScore": 0.8725050338109335,
+        "BERTScore": 0.8725050338109335,
+        "PaScore": 0.8730174362659454
+      },
+      "skipped": {},
+      "timings_seconds": {
+        "METEOR": 5.617,
+        "BLEU": 0.017,
+        "ROUGE": 0.044,
+        "BeScore": 2.617,
+        "PaScore": 2.631
+      },
+      "total_seconds": 10.995
+    },
+    "judgement": {
+      "num_items": 150,
+      "summary": {
+        "num_items": 150,
+        "avg_pred_words": 5.6,
+        "avg_ref_words": 8.846666666666666,
+        "avg_refs_per_item": 1.0
+      },
+      "metrics": {
+        "METEOR": 0.2791224748643929,
+        "BLEU-1": 0.32468504023186334,
+        "BLEU-2": 0.26871269062913966,
+        "BLEU-3": 0.23871938886793465,
+        "BLEU-4": 0.2159990844810483,
+        "BLEU": [
+          0.32468504023186334,
+          0.26871269062913966,
+          0.23871938886793465,
+          0.2159990844810483
+        ],
+        "BLEU_acc": 1.0481162042099859,
+        "ROUGE": 0.47965954602154437,
+        "CIDEr": 2.818418289852733,
+        "BeScore": 0.9422333518664042,
+        "BERTScore": 0.9422333518664042,
+        "PaScore": 0.9399256205558777
+      },
+      "skipped": {},
+      "timings_seconds": {
+        "METEOR": 5.394,
+        "BLEU": 0.004,
+        "ROUGE": 0.001,
+        "BeScore": 1.092,
+        "PaScore": 1.045
+      },
+      "total_seconds": 7.547
+    }
+  },
+  "table": [
+    {
+      "split": "overall",
+      "num_items": 398,
+      "BLEU": "0.419",
+      "CIDEr": "1.169",
+      "METEOR": "0.112",
+      "ROUGE": "0.293",
+      "BERTScore": "0.899",
+      "PaScore": "0.899"
+    },
+    {
+      "split": "analysis",
+      "num_items": 98,
+      "BLEU": "0.361",
+      "CIDEr": "0.086",
+      "METEOR": "0.113",
+      "ROUGE": "0.171",
+      "BERTScore": "0.873",
+      "PaScore": "0.875"
+    },
+    {
+      "split": "description",
+      "num_items": 150,
+      "BLEU": "0.276",
+      "CIDEr": "0.045",
+      "METEOR": "0.092",
+      "ROUGE": "0.185",
+      "BERTScore": "0.873",
+      "PaScore": "0.873"
+    },
+    {
+      "split": "judgement",
+      "num_items": 150,
+      "BLEU": "1.048",
+      "CIDEr": "2.818",
+      "METEOR": "0.279",
+      "ROUGE": "0.480",
+      "BERTScore": "0.942",
+      "PaScore": "0.940"
+    }
+  ],
+  "outputs": {
+    "json": "results\\vau_hivau\\vad_agent_question_conditioned\\hivau_ours_task_labels_semantic_table.json",
+    "table_csv": "results\\vau_hivau\\vad_agent_question_conditioned\\hivau_ours_task_labels_semantic_table.csv",
+    "table_md": "results\\vau_hivau\\vad_agent_question_conditioned\\hivau_ours_task_labels_semantic_table.md",
+    "synced_predictions": "results\\vau_hivau\\vad_agent_question_conditioned\\hivau_ours_task_labels_question_aligned_task_synced.json"
+  },
+  "sync_report": {
+    "instructions": "data\\annotations\\hivau_merge_instruction_test_final.jsonl",
+    "dataset_filter": "all",
+    "dataset_counts": {
+      "ucf": 157,
+      "xd": 241
+    },
+    "filtered_out_rows": 0,
+    "changed_task_role": 0,
+    "missing_instruction_ids": [],
+    "mismatches": [],
+    "num_input_rows": 398,
+    "num_metric_rows": 398,
+    "num_skipped_rows": 0,
+    "skipped_rows": [],
+    "num_mismatches": 0,
+    "num_missing_instruction_ids": 0
+  },
+  "notes": {
+    "alignment": "Each row is one original HIVAU question; metric IDs are unique per row, so repeated video_id values cannot overwrite rows.",
+    "task_labels": "When --instructions is supplied, task_role/task are copied from the HIVAU GT task field.",
+    "BLEU": "The table BLEU column is BLEU_acc = BLEU-1 + BLEU-2 + BLEU-3 + BLEU-4.",
+    "CIDEr": "CIDEr is computed on the same question-aligned rows, not grouped per-video refs.",
+    "BERTScore": "The JSON keeps the existing BeScore key and also adds BERTScore as an alias when computed."
+  },
+  "settings": {
+    "meteor_timeout": 300,
+    "meteor_per_item": false,
+    "meteor_max_words": null,
+    "bertscore": true,
+    "bertscore_model": "roberta-large",
+    "parascore": true,
+    "parascore_model": "roberta-large",
+    "parascore_mode": "similarity",
+    "cider_tokenizer": "simple",
+    "dataset_filter": "all"
+  },
+  "total_seconds": 40.686
+}

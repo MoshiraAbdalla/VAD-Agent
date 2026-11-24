@@ -1,0 +1,61 @@
+{
+  "id": "qualitative_xd_abnormal",
+  "print_width_inches": 7.1,
+  "print_height_inches": 9.002208333333332,
+  "frame_panel_pixels": [
+    660,
+    371
+  ],
+  "body_font_points": 9.584999999999999,
+  "minimum_plot_font_points": 9.5,
+  "full_agent_outputs": true,
+  "projection_mode": "stride",
+  "gap_policy": "hold",
+  "cases": [
+    {
+      "id": "qualitative_xd_abnormal",
+      "dataset": "xd",
+      "video": "Mission.Impossible.Fallout.2018__#00-31-21_00-32-50_label_B1-0-0",
+      "score_source": "results\\predictions\\xd_violence_mif_stride64_2\\Mission.Impossible.Fallout.2018__#00-31-21_00-32-50_label_B1-0-0.json",
+      "score_sha256": "3ca18547d51f0b925c5f0ed6ce7f26e8a87b9321b73fc747c08f16c92472b3ee",
+      "agent_source": "results\\predictions\\xd_violence_mif_stride64_2\\Mission.Impossible.Fallout.2018__#00-31-21_00-32-50_label_B1-0-0.json",
+      "agent_sha256": "3ca18547d51f0b925c5f0ed6ce7f26e8a87b9321b73fc747c08f16c92472b3ee",
+      "feature_source": "results\\cached_features\\xd_violence_stride64\\Mission.Impossible.Fallout.2018__#00-31-21_00-32-50_label_B1-0-0.npy",
+      "feature_sha256": "11a6c7e8d2786af7bd12af54f4b00694016379f21af11ed7b7dc60802392fed0",
+      "ground_truth_intervals": [
+        [
+          96,
+          2125
+        ]
+      ],
+      "n_segments": 34,
+      "curve_alignment": "exact",
+      "snapshots": [
+        {
+          "frame": 100,
+          "start": 64,
+          "end": 364,
+          "label": 1,
+          "frame_sha256": "61e7d2336a07081f07a20cad79f1a1e23d4d4dd27cac4003ce2963a473b1328a",
+          "agent_outputs": {
+            "summarization_agent": "Summary: The man in the white hallway is now in a white, sterile room where a group of men in suits are engaged in a physical altercation. One man is being thrown against a wall and another is being pushed to the ground.\nKey Entities: Men in suits, man, attacker\nScene Setting: White, sterile room",
+            "context_agent": "Context Summary: A group of men in suits are engaged in a physical altercation in a white, sterile room, with one man being thrown against a wall and another being pushed to the ground.\nKey Entities: Men in suits\nScene Setting: White, sterile room",
+            "reasoning_agent": "Answers to Prompt Questions: The video shows a tense and chaotic scene with a man being attacked in a hallway. There are frames where the video content shows an object or person performing an unusual action that does not fit the usual pattern of the video content, such as the man being attacked and the subsequent fight. There are also frames where the video content shows a disruption in the normal flow of the video, such as the sudden change in the camera angle and the loss of video quality. Based on the analysis, there is an anomaly in the video.\nOutput: 1"
+          }
+        },
+        {
+          "frame": 1200,
+          "start": 1152,
+          "end": 1452,
+          "label": 1,
+          "frame_sha256": "e85738770b6dab95940747ec00f0c5628f422188b0c2f0405dbbfb71ee4109c6",
+          "agent_outputs": {
+            "summarization_agent": "Summary: In the white hallway, a man in a suit is seen running and falling, while another man in a suit is engaged in a fight with another man. A third man is running towards them. The scene is chaotic, with people running and falling in the hallway. Then, in the office hallway, a tense confrontation between two men occurs, with one man throwing punches and the other trying to defend himself.\nKey Entities: Man in suit, hallway, falling, fighting, man running, two men\nScene Setting: White hallway, office hallway",
+            "context_agent": "Context Summary: A tense confrontation between two men in a modern office hallway, with one man throwing punches and the other trying to defend himself.\nKey Entities: two men\nScene Setting: office hallway",
+            "reasoning_agent": "Answers to Prompt Questions: There are frames where the video content shows an object or person performing an unusual action that does not fit the usual pattern of the video content. Specifically, the men are engaged in a fight, which is not a typical behavior in a hallway setting. Additionally, there are frames where the video content shows a disruption in the normal flow of the video, such as a sudden change in the camera angle and a loss of video quality.\nOutput: 1"
+          }
+        }
+      ]
+    }
+  ]
+}

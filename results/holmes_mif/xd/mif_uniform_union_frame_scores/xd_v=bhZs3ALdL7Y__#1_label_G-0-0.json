@@ -1,0 +1,75 @@
+{
+  "dataset": "xd",
+  "video": "v=bhZs3ALdL7Y__#1_label_G-0-0",
+  "annotation_video": "v=bhZs3ALdL7Y__#1_label_G-0-0",
+  "video_path": "D:\\Moshira Research\\VERA-main-cvpr2025\\MDF_VAD\\data\\XD-Violence-testing\\videos\\v=bhZs3ALdL7Y__#1_label_G-0-0.mp4",
+  "n_frames": 81,
+  "uniform_stride": 16,
+  "uniform_indices": [
+    0,
+    16,
+    32,
+    48,
+    64,
+    80
+  ],
+  "maf_indices": [
+    8,
+    18,
+    35,
+    53,
+    63,
+    72
+  ],
+  "union_indices": [
+    0,
+    8,
+    16,
+    18,
+    32,
+    35,
+    48,
+    53,
+    63,
+    64,
+    72,
+    80
+  ],
+  "raw_anomaly_scores": [
+    0.21473290026187897,
+    0.22133029997348785,
+    0.2908458113670349,
+    0.3994484841823578,
+    0.5496357679367065,
+    0.6390147805213928,
+    0.6393987536430359,
+    0.5650531053543091,
+    0.43561017513275146,
+    0.30622777342796326,
+    0.2248171865940094,
+    0.20337076485157013
+  ],
+  "union_scores": [
+    0.21473290026187897,
+    0.22133029997348785,
+    0.2908458113670349,
+    0.3994484841823578,
+    0.5496357679367065,
+    0.6390147805213928,
+    0.6393987536430359,
+    0.5650531053543091,
+    0.43561017513275146,
+    0.30622777342796326,
+    0.2248171865940094,
+    0.20337076485157013
+  ],
+  "sequence_alignment": {
+    "method": "identity",
+    "raw_score_length": 12,
+    "score_length": 12,
+    "target_length": 12
+  },
+  "feature_space": "HolmesVAU model.vision_model CLS token",
+  "scorer": "HolmesVAU ATS/URDMU anomaly_scorer.pth",
+  "selection": "saved MAF selected frames union uniform stride frames"
+}

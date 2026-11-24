@@ -1,0 +1,117 @@
+{
+  "dataset": "ucf",
+  "video": "Abuse028_x264",
+  "video_file": "D:\\Moshira Research\\VERA-main-cvpr2025\\MDF_VAD\\data\\Anomaly-Detection-Dataset\\Anomaly-Videos-Part-1\\Abuse\\Abuse028_x264.mp4",
+  "source_width": 320,
+  "source_height": 240,
+  "source_fps": 30.0,
+  "source_frame_count": 1412,
+  "decoded_frames": 1412,
+  "video_duration_sec": 47.06666666666667,
+  "segment_len": 300,
+  "segment_stride": 150,
+  "context_k": 16,
+  "reasoning_k": 8,
+  "mllm_workload": {
+    "calls_per_segment": 2,
+    "context_agent_frames": 16,
+    "reasoning_agent_frames": 8,
+    "summary_agent_frames": 1,
+    "context_and_reasoning_are_batched": true
+  },
+  "model_load_seconds": 15.302368999999999,
+  "decode_seconds": 0.5125226000000112,
+  "segment_level_inference_seconds_pre_temporal": 130.28449909999927,
+  "temporal_refinement_seconds": 0.0008210999994844315,
+  "e2e_video_seconds_excluding_model_load_pre_temporal": 130.79702169999928,
+  "e2e_video_seconds_excluding_model_load_with_temporal": 130.79784279999876,
+  "e2e_total_seconds_including_model_load_with_temporal": 146.10021179999876,
+  "real_time_factor_pre_temporal_excluding_model_load": 2.77897354886684,
+  "real_time_factor_with_temporal_excluding_model_load": 2.7789909943342512,
+  "temporal_refinement_requires_future_segments": true,
+  "additional_lookahead_delay_frames_full_video": 1262,
+  "additional_lookahead_delay_seconds_full_video": 42.06666666666667,
+  "warmup_segments": 1,
+  "measured_segments": 7,
+  "latency_per_segment_pre_temporal": {
+    "mean_sec": 16.512659714285682,
+    "std_sec": 2.8221800972789444,
+    "p50_sec": 16.076949199999945,
+    "p95_sec": 20.711942800000543
+  },
+  "segments_per_second_pre_temporal": 0.060559595928381234,
+  "window_frames_per_second_overlap_counted_pre_temporal": 18.16787877851437,
+  "unique_video_frames_per_second_segments_only_pre_temporal": 10.381645016293927,
+  "decoded_video_frames_per_second_e2e_with_temporal_excluding_model_load": 10.795285073310195,
+  "stage_seconds": {
+    "evidence_selection_mif": {
+      "mean_sec": 3.18458934285718,
+      "std_sec": 0.1934594445641198,
+      "p50_sec": 3.170552399999906,
+      "p95_sec": 3.4160146000003806
+    },
+    "tensor_prep": {
+      "mean_sec": 0.07476480000033396,
+      "std_sec": 0.017146450809122974,
+      "p50_sec": 0.08755820000078529,
+      "p95_sec": 0.08911780000016734
+    },
+    "context_plus_reasoning_batched": {
+      "mean_sec": 10.278388471428896,
+      "std_sec": 2.5357105944888843,
+      "p50_sec": 9.480957000000672,
+      "p95_sec": 13.880524400000468
+    },
+    "narrative_memory_summary": {
+      "mean_sec": 2.9682515142859693,
+      "std_sec": 0.7806227747353451,
+      "p50_sec": 3.029835500000445,
+      "p95_sec": 3.9688616000003094
+    },
+    "segment_feature": {
+      "mean_sec": 0.00047450000004443737,
+      "std_sec": 9.926328639932923e-05,
+      "p50_sec": 0.00048130000050150556,
+      "p95_sec": 0.0006309000000328524
+    }
+  },
+  "token_counts": {
+    "context_input": {
+      "mean": 290.0,
+      "std": 0.0,
+      "p50": 290.0,
+      "p95": 290.0
+    },
+    "reasoning_input": {
+      "mean": 488.7142857142857,
+      "std": 10.144198435793825,
+      "p50": 490.0,
+      "p95": 507.0
+    },
+    "summary_input": {
+      "mean": 306.0,
+      "std": 9.363047936792093,
+      "p50": 303.0,
+      "p95": 322.0
+    },
+    "context_output": {
+      "mean": 43.285714285714285,
+      "std": 7.739816658342877,
+      "p50": 43.0,
+      "p95": 51.0
+    },
+    "reasoning_output": {
+      "mean": 90.42857142857143,
+      "std": 43.965354325336456,
+      "p50": 75.0,
+      "p95": 152.0
+    },
+    "summary_output": {
+      "mean": 55.0,
+      "std": 9.814954576223638,
+      "p50": 53.0,
+      "p95": 70.0
+    }
+  },
+  "note": "Context and reasoning are timed as one batched InternVL call, matching the implemented VAD-Agent pipeline. Separate per-agent latency would require an extra diagnostic unbatched run and is not the deployed timing."
+}

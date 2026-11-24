@@ -1,0 +1,37 @@
+{
+  "vad_agent_detection": {
+    "ucf_crime": {
+      "auc": 0.83043816,
+      "reported_percent": 83.04,
+      "projection_mode": "stride",
+      "top_ratio": 0.1,
+      "temperature": 10,
+      "smooth_size": 15,
+      "smooth_sigma": 10,
+      "position_weight_sigma": -1,
+      "direct_segment_weight": 0.1,
+      "temporal_refined_weight": 0.9,
+      "gap_policy": "hold"
+    },
+    "xd_violence": {
+      "ap": 0.591460854,
+      "auc": 0.846424071,
+      "reported_ap_percent": 59.15,
+      "reported_auc_percent": 84.64,
+      "projection_mode": "stride",
+      "top_ratio": 0.15,
+      "temperature": 10,
+      "smooth_size": 30,
+      "smooth_sigma": 30,
+      "position_weight_sigma": -1,
+      "direct_segment_weight": 0.1,
+      "temporal_refined_weight": 0.9,
+      "gap_policy": "hold"
+    }
+  },
+  "vad_agent_mif_holmes": {
+    "ucf_crime_auc_percent": 87.18,
+    "xd_violence_ap_percent": 87.07,
+    "xd_violence_auc_percent": 95.61
+  }
+}

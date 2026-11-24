@@ -1,0 +1,117 @@
+{
+  "dataset": "ucf",
+  "video": "Abuse028_x264",
+  "video_file": "D:\\Moshira Research\\VERA-main-cvpr2025\\MDF_VAD\\data\\Anomaly-Detection-Dataset\\Anomaly-Videos-Part-1\\Abuse\\Abuse028_x264.mp4",
+  "source_width": 320,
+  "source_height": 240,
+  "source_fps": 30.0,
+  "source_frame_count": 1412,
+  "decoded_frames": 1412,
+  "video_duration_sec": 47.06666666666667,
+  "segment_len": 300,
+  "segment_stride": 150,
+  "context_k": 16,
+  "reasoning_k": 8,
+  "mllm_workload": {
+    "calls_per_segment": 2,
+    "context_agent_frames": 16,
+    "reasoning_agent_frames": 8,
+    "summary_agent_frames": 1,
+    "context_and_reasoning_are_batched": true
+  },
+  "model_load_seconds": 9.906816499999877,
+  "decode_seconds": 0.24841900000046735,
+  "segment_level_inference_seconds_pre_temporal": 155.38429310000083,
+  "temporal_refinement_seconds": 0.0032154000000446104,
+  "e2e_video_seconds_excluding_model_load_pre_temporal": 155.6327121000013,
+  "e2e_video_seconds_excluding_model_load_with_temporal": 155.63592750000134,
+  "e2e_total_seconds_including_model_load_with_temporal": 165.54274400000122,
+  "real_time_factor_pre_temporal_excluding_model_load": 3.3066440247875626,
+  "real_time_factor_with_temporal_excluding_model_load": 3.3067123406515866,
+  "temporal_refinement_requires_future_segments": true,
+  "additional_lookahead_delay_frames_full_video": 1262,
+  "additional_lookahead_delay_seconds_full_video": 42.06666666666667,
+  "warmup_segments": 1,
+  "measured_segments": 9,
+  "latency_per_segment_pre_temporal": {
+    "mean_sec": 15.770060477777609,
+    "std_sec": 3.006896682137059,
+    "p50_sec": 15.028993199999604,
+    "p95_sec": 20.87160279999989
+  },
+  "segments_per_second_pre_temporal": 0.06341129771881032,
+  "window_frames_per_second_overlap_counted_pre_temporal": 16.726491198272853,
+  "unique_video_frames_per_second_segments_only_pre_temporal": 8.891673080126514,
+  "decoded_video_frames_per_second_e2e_with_temporal_excluding_model_load": 9.072455330084294,
+  "stage_seconds": {
+    "evidence_selection_mif": {
+      "mean_sec": 2.786786233333361,
+      "std_sec": 0.8577088392480271,
+      "p50_sec": 3.014138399999865,
+      "p95_sec": 3.422930200000337
+    },
+    "tensor_prep": {
+      "mean_sec": 0.078622766666639,
+      "std_sec": 0.017655510773967723,
+      "p50_sec": 0.08922199999960867,
+      "p95_sec": 0.09248699999989185
+    },
+    "context_plus_reasoning_batched": {
+      "mean_sec": 10.110399755555388,
+      "std_sec": 2.2692601214365538,
+      "p50_sec": 9.372194700000364,
+      "p95_sec": 13.95885460000045
+    },
+    "narrative_memory_summary": {
+      "mean_sec": 2.7875646444443998,
+      "std_sec": 0.6767226753609913,
+      "p50_sec": 2.729269700000259,
+      "p95_sec": 3.8974874999994427
+    },
+    "segment_feature": {
+      "mean_sec": 0.00048532222222598246,
+      "std_sec": 5.347022007751242e-05,
+      "p50_sec": 0.00048749999950814527,
+      "p95_sec": 0.0005589000002146349
+    }
+  },
+  "token_counts": {
+    "context_input": {
+      "mean": 290.0,
+      "std": 0.0,
+      "p50": 290.0,
+      "p95": 290.0
+    },
+    "reasoning_input": {
+      "mean": 487.6666666666667,
+      "std": 12.399596767637245,
+      "p50": 490.0,
+      "p95": 507.0
+    },
+    "summary_input": {
+      "mean": 306.44444444444446,
+      "std": 9.084480049941096,
+      "p50": 303.0,
+      "p95": 322.0
+    },
+    "context_output": {
+      "mean": 42.77777777777778,
+      "std": 6.778233135887585,
+      "p50": 41.0,
+      "p95": 51.0
+    },
+    "reasoning_output": {
+      "mean": 87.33333333333333,
+      "std": 38.632887544163715,
+      "p50": 75.0,
+      "p95": 152.0
+    },
+    "summary_output": {
+      "mean": 53.111111111111114,
+      "std": 9.319930853343877,
+      "p50": 53.0,
+      "p95": 70.0
+    }
+  },
+  "note": "Context and reasoning are timed as one batched InternVL call, matching the implemented VAD-Agent pipeline. Separate per-agent latency would require an extra diagnostic unbatched run and is not the deployed timing."
+}
